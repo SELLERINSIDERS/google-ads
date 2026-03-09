@@ -19,13 +19,20 @@
 - Use `GAQL` (Google Ads Query Language) for all data fetching
 - Always scope queries to `GOOGLE_ADS_CUSTOMER_ID` unless explicitly told otherwise
 
+## Shared Knowledge
+- Company rules, brand, and product context live in `shared/` (git submodule → `SELLERINSIDERS/shared-company-brain`)
+- Read `shared/COMPANY-RULES.md`, `shared/KNOWLEDGE-BASE.md`, and `shared/USER.md` before making decisions
+- To update: `git submodule update --remote shared && git add shared && git commit -m "Update shared brain"`
+
 ## File Structure
 ```
 Google Ads/
 ├── .env                  # Credentials (gitignored)
 ├── .gitignore
+├── .gitmodules
 ├── CLAUDE.md
-└── test_connection.py    # Dry-run connection test
+├── test_connection.py    # Dry-run connection test
+└── shared/               # Submodule: shared-company-brain
 ```
 
 ## Workflow
