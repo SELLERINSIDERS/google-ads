@@ -37,3 +37,7 @@ Thumbs.db
 # Logs
 *.log
 logs/
+
+# Data exports (keep folder, ignore contents)
+data/exports/*
+!data/exports/.gitkeep

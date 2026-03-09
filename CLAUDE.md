@@ -27,12 +27,26 @@
 ## File Structure
 ```
 Google Ads/
-├── .env                  # Credentials (gitignored)
-├── .gitignore
-├── .gitmodules
+├── .env                        # Credentials (gitignored)
+├── .gitignore / .gitmodules
 ├── CLAUDE.md
-├── test_connection.py    # Dry-run connection test
-└── shared/               # Submodule: shared-company-brain
+├── test_connection.py          # Dry-run connection test
+├── utils/
+│   └── client.py               # Shared API client — import in every script
+├── campaigns/
+│   ├── clinical-energy/        # Campaign scripts for Clinical Energy product
+│   └── calm-rest/              # Campaign scripts for Cadence Calm+Rest product
+├── ads/
+│   ├── clinical-energy/        # Headlines, descriptions, copy
+│   └── calm-rest/              # Headlines, descriptions, copy
+├── reports/
+│   ├── performance.py          # Pull campaign metrics (--days 7/14/30)
+│   ├── daily/
+│   ├── weekly/
+│   └── monthly/
+├── data/
+│   └── exports/                # CSVs and outputs (gitignored)
+└── shared/                     # Submodule: shared-company-brain
 ```
 
 ## Workflow
