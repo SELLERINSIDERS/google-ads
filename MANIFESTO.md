@@ -1,5 +1,5 @@
 # Google Ads — Project Manifesto
-_Last updated: 2026-03-09 | Session: Initial campaign setup — Calm+Rest Magnesium_
+_Last updated: 2026-03-09 | Session: Workflow framework setup_
 
 ---
 
@@ -84,3 +84,4 @@ _Last updated: 2026-03-09 | Session: Initial campaign setup — Calm+Rest Magnes
 | Date | Summary |
 |---|---|
 | 2026-03-09 | First session. Created negative keyword list (988 kws), campaign "SR \| Calm+Rest \| Magnesium \| Broad" (PAUSED), RSA (PAUSED). Fixed 3 API v23 bugs: `contains_eu_political_advertising`, `explicitly_shared`, `maximize_conversions` workaround. All files committed to GitHub. |
+| 2026-03-09 | Second session. Built workflow framework: MANIFESTO.md (this file), CLAUDE.md session protocol, MEMORY.md auto-loaded API patterns, SKILL.md v23 known issues. All committed to GitHub. |
