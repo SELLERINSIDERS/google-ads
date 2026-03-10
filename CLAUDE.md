@@ -49,8 +49,14 @@ Google Ads/
 └── shared/                     # Submodule: shared-company-brain
 ```
 
+## Session Protocol
+- **START every session:** Read `MANIFESTO.md` before doing anything — it contains current campaign state, resource IDs, API quirks, and pending TODOs
+- **END every session:** Update `MANIFESTO.md` to reflect any changes made (new campaigns, status changes, completed TODOs, new API lessons learned), then commit
+
 ## Workflow
-1. Read `.env` via `python-dotenv`
-2. Build client with `GoogleAdsClient.load_from_dict()`
-3. Test with `test_connection.py` after any credential change
-4. Commit only non-sensitive files to `SELLERINSIDERS/google-ads`
+1. Read `MANIFESTO.md` (session check-in)
+2. Read `.env` via `python-dotenv`
+3. Build client with `GoogleAdsClient.load_from_dict()`
+4. Test with `test_connection.py` after any credential change
+5. Commit only non-sensitive files to `SELLERINSIDERS/google-ads`
+6. Update `MANIFESTO.md` at session end (session check-out)
