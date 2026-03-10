@@ -83,10 +83,15 @@ def create_campaign(client, budget_resource_name):
     # Manual CPC is equivalent while PAUSED; change in UI: Settings > Bidding before enabling.
     campaign.manual_cpc.enhanced_cpc_enabled = False
 
-    # Network settings
+    # Network settings — search only, no partners
     campaign.network_settings.target_google_search = True
-    campaign.network_settings.target_search_network = True
+    campaign.network_settings.target_search_network = False
     campaign.network_settings.target_content_network = False
+
+    # Geo targeting: PRESENCE only (not PRESENCE_OR_INTEREST)
+    campaign.geo_target_type_setting.positive_geo_target_type = (
+        client.enums.PositiveGeoTargetTypeEnum.PRESENCE
+    )
 
     response = campaign_service.mutate_campaigns(
         customer_id=CUSTOMER_ID, operations=[op]

@@ -1,0 +1,129 @@
+{
+  "skill_name": "google-ads-scripts",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to create a new search campaign for Clinical Energy targeting 'best glutathione supplements' and 'glutathione supplement reviews'. Set it up with a $40/day budget, create the full campaign structure with ad group and keywords, and write an RSA with 15 headlines and 4 descriptions. Put all the scripts in campaigns/clinical-energy/. The landing page is https://www.trustedselections.org/top-5-best-glutathione-2026",
+      "expected_output": "Complete campaign creation scripts (02_create_campaign.py and 03_create_rsa.py) that include all v23 API workarounds, correct default settings (PAUSED campaign, US-only PRESENCE geo, no search partners), compliant ad copy, and proper naming conventions.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "eu-political-field",
+          "text": "Campaign script sets contains_eu_political_advertising = 3",
+          "type": "content_check"
+        },
+        {
+          "id": "explicitly-shared",
+          "text": "Budget has explicitly_shared = False",
+          "type": "content_check"
+        },
+        {
+          "id": "manual-cpc",
+          "text": "Campaign uses manual_cpc bidding (not maximize_conversions)",
+          "type": "content_check"
+        },
+        {
+          "id": "geo-presence",
+          "text": "Campaign sets geo_target_type to PRESENCE (not PRESENCE_OR_INTEREST)",
+          "type": "content_check"
+        },
+        {
+          "id": "campaign-paused",
+          "text": "Campaign is created in PAUSED status",
+          "type": "content_check"
+        },
+        {
+          "id": "search-partners-off",
+          "text": "target_search_network is set to False",
+          "type": "content_check"
+        },
+        {
+          "id": "headline-length",
+          "text": "All RSA headlines are 30 characters or fewer",
+          "type": "content_check"
+        },
+        {
+          "id": "description-length",
+          "text": "All RSA descriptions are 90 characters or fewer",
+          "type": "content_check"
+        },
+        {
+          "id": "naming-convention",
+          "text": "Campaign name follows SR | Product | Theme | Match Type convention",
+          "type": "content_check"
+        },
+        {
+          "id": "utm-params",
+          "text": "Final URL includes proper UTM parameters",
+          "type": "content_check"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Pull the last 7 days of search terms for our campaigns and analyze them. Tell me which search terms we should add as exact-match keywords, which ones should be added as negative keywords, and which ones we should keep monitoring. Give me a clear breakdown with the reasoning for each.",
+      "expected_output": "A script or GAQL query that pulls search terms, plus a framework for categorizing terms into promote/negative/monitor buckets based on clicks, conversions, and intent signals.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "search-term-query",
+          "text": "Uses search_term_view GAQL query or references the bundled search term script",
+          "type": "content_check"
+        },
+        {
+          "id": "categorization",
+          "text": "Categorizes terms into at least three buckets (promote, negative, monitor)",
+          "type": "content_check"
+        },
+        {
+          "id": "data-thresholds",
+          "text": "Mentions minimum data thresholds before making decisions (e.g., clicks, conversions)",
+          "type": "content_check"
+        },
+        {
+          "id": "negative-signals",
+          "text": "Identifies common negative keyword signals (food intent, medical, informational, geo)",
+          "type": "content_check"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write a new RSA for the Calm+Rest campaign. I want to target people searching for magnesium for anxiety and stress relief. Make 15 headlines and 4 descriptions focused on the anxiety angle.",
+      "expected_output": "The RSA should use compliant language, flag that 'anxiety' is a prohibited term, and reframe using approved alternatives like 'supports calm state of mind' and 'stress response support'. All headlines must be <=30 chars, descriptions <=90 chars.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "compliance-flag",
+          "text": "Flags or avoids using 'anxiety' as a disease/condition claim",
+          "type": "content_check"
+        },
+        {
+          "id": "approved-language",
+          "text": "Uses approved compliance language (supports, may help, promotes) instead of disease claims",
+          "type": "content_check"
+        },
+        {
+          "id": "headline-30-chars",
+          "text": "All headlines are 30 characters or fewer",
+          "type": "content_check"
+        },
+        {
+          "id": "description-90-chars",
+          "text": "All descriptions are 90 characters or fewer",
+          "type": "content_check"
+        },
+        {
+          "id": "no-sleep-aid",
+          "text": "Does not use prohibited term 'sleep aid'",
+          "type": "content_check"
+        },
+        {
+          "id": "no-treats-reduces",
+          "text": "Does not use 'treats', 'reduces anxiety', 'cures', or 'prevents'",
+          "type": "content_check"
+        }
+      ]
+    }
+  ]
+}

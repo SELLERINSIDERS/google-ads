@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "google-ads-scripts": {
+      "source": "henkisdabro/wookstar-claude-plugins",
+      "sourceType": "github",
+      "computedHash": "e82628783344b698a4ef760e17e66c3a8d7ce260456ef46aa82b18170f376565"
+    }
+  }
+}

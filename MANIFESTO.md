@@ -1,5 +1,5 @@
 # Google Ads — Project Manifesto
-_Last updated: 2026-03-09 | Session: Workflow framework setup_
+_Last updated: 2026-03-10 | Session: Skill overhaul + optimization_
 
 ---
 
@@ -32,7 +32,7 @@ _Last updated: 2026-03-09 | Session: Workflow framework setup_
 ## Shared Resources
 | Name | Resource Name | Keywords | Linked Campaigns |
 |---|---|---|---|
-| Master Negatives — All Campaigns | `customers/2436521562/sharedSets/12001367914` | 988 | SR \| Calm+Rest \| Magnesium \| Broad |
+| Master Negatives — All Campaigns | `customers/2436521562/sharedSets/12001367914` | 1067 | SR \| Calm+Rest \| Magnesium \| Broad |
 
 **File:** `data/negative-keywords-master.txt`
 
@@ -45,12 +45,13 @@ _Last updated: 2026-03-09 | Session: Workflow framework setup_
 |---|---|
 | Campaign resource | `customers/2436521562/campaigns/23642918848` |
 | Budget resource | `customers/2436521562/campaignBudgets/15425567959` ($50/day) |
-| **Status** | **PAUSED** |
-| **Bidding** | **⚠️ Manual CPC — MUST switch to Maximize Conversions in UI before enabling** |
-| Network | Search only (no display) |
+| **Status** | **ENABLED** |
+| **Bidding** | **Maximize Conversions** (switched 2026-03-10) |
+| Network | Search only (no display, no search partners) |
+| Geo targeting | United States — PRESENCE only |
 | Ad Group | Broad — Magnesium Supplements (`customers/2436521562/adGroups/197903355790`) |
 | Keywords | `best magnesium supplements`, `best magnesium for sleep` (Broad match) |
-| RSA | `customers/2436521562/adGroupAds/197903355790~799649758483` (PAUSED) |
+| RSA | `customers/2436521562/adGroupAds/197903355790~799649758483` (ENABLED) |
 | Landing page | https://www.trustedselections.org/top-5-best-magnesium-2026 |
 | UTM | `?utm_source=google&utm_medium=cpc&utm_campaign=calm-rest-magnesium-broad&utm_content=broad-magnesium-supplements&utm_term={keyword}` |
 | Negatives | Master Negatives — All Campaigns ✓ |
@@ -60,8 +61,8 @@ _Last updated: 2026-03-09 | Session: Workflow framework setup_
 ---
 
 ## TODO — Next Actions (priority order)
-- [ ] **BLOCKING:** Switch campaign bidding to Maximize Conversions in UI (Settings > Bidding)
-- [ ] Enable campaign once bidding is switched
+- [x] ~~Switch campaign bidding to Maximize Conversions in UI~~ (done 2026-03-10)
+- [x] ~~Enable campaign~~ (done 2026-03-10)
 - [ ] After 7 days live: `python3 reports/performance.py --days 7`
 - [ ] Pull search terms report → promote top queries to exact-match keywords
 - [ ] Once 30+ conversions: consider adding target CPA
@@ -85,3 +86,5 @@ _Last updated: 2026-03-09 | Session: Workflow framework setup_
 |---|---|
 | 2026-03-09 | First session. Created negative keyword list (988 kws), campaign "SR \| Calm+Rest \| Magnesium \| Broad" (PAUSED), RSA (PAUSED). Fixed 3 API v23 bugs: `contains_eu_political_advertising`, `explicitly_shared`, `maximize_conversions` workaround. All files committed to GitHub. |
 | 2026-03-09 | Second session. Built workflow framework: MANIFESTO.md (this file), CLAUDE.md session protocol, MEMORY.md auto-loaded API patterns, SKILL.md v23 known issues. All committed to GitHub. |
+| 2026-03-10 | Third session. Analyzed day-1 performance: 589 imp, 58 clicks, $50.16 spent, 0 conversions, 9.85% CTR. Fixed geo targeting from PRESENCE_OR_INTEREST → PRESENCE only. Added 79 new negative keywords (988→1067) to block foreign geo, food intent, medical conditions, informational queries. Saved default campaign rules: US-only, PRESENCE, no search partners, no AIMax. Updated campaign creation script. |
+| 2026-03-10 | Fourth session. Major skill overhaul: rewrote `google-ads-scripts` skill from JavaScript AdsApp → Python google-ads API. Deleted 7 JS files, created 4 reference docs (python-api-patterns, campaign-creation-checklist, compliance-guardrails, optimization-playbook), 2 utility scripts (search_term_report.py, campaign_health_check.py). Ran 3 evals (campaign creation, search term analysis, compliance RSA) — skill scored 100% vs 95% baseline. Key skill value: character limit enforcement, compliance documentation, consistent v23 workarounds. Optimized skill description for auto-triggering on all Google Ads tasks. |
